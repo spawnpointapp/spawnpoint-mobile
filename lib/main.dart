@@ -39,7 +39,7 @@ class mainlayout extends StatelessWidget {
             const ListTile(
               leading: Icon(Icons.code),
               title: Text("Welcome to SpawnPoint"),
-              subtitle: Text("This project is being activly Worked on (See Button Below)"),
+              subtitle: Text("This project is being ctively Worked on (See Button Below)"),
 
             )
           ],
