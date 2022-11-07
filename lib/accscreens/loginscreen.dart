@@ -7,6 +7,7 @@ void main(List<String> args) {
   runApp(const loginscreen());
 }
 
+// ignore: camel_case_types
 class loginscreen extends StatelessWidget {
   const loginscreen({super.key});
 
@@ -26,9 +27,6 @@ class loginscreen extends StatelessWidget {
           brightness: Brightness.dark,
           primarySwatch: Colors.purple,
           primaryColor: Colors.white,
-          textTheme: TextTheme(
-            
-          )
         ),
         initial: AdaptiveThemeMode.system,
         builder: ((light, dark) => MaterialApp(
@@ -64,6 +62,12 @@ class loginscreen extends StatelessWidget {
                               border: OutlineInputBorder(),
                               labelText: "Password"),
                         ),
+                        OutlinedButton(
+                            onPressed: () {
+                              // ignore: avoid_print
+                              print("Hello world");
+                            },
+                            child: const Text("Login"))
                       ],
                     )),
                   )),

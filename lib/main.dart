@@ -4,7 +4,7 @@ import "accscreens/signupscreen.dart";
 import 'package:adaptive_theme/adaptive_theme.dart';
 
 void main() {
-  runApp(app());
+  runApp(const app());
 }
 
 class app extends StatelessWidget {
@@ -17,14 +17,14 @@ class app extends StatelessWidget {
           useMaterial3: true,
           brightness: Brightness.light,
           primarySwatch: Colors.purple,
-          primaryColor: Color.fromARGB(255, 233, 30, 182),
+          primaryColor: const Color.fromARGB(255, 233, 30, 182),
         ),
         dark: ThemeData(
           fontFamily: 'RedHatDisplay',
           useMaterial3: true,
           brightness: Brightness.dark,
           primarySwatch: Colors.purple,
-          primaryColor: Color.fromARGB(255, 233, 30, 182),
+          primaryColor: const Color.fromARGB(255, 233, 30, 182),
         ),
         initial: AdaptiveThemeMode.system,
         builder: ((light, dark) => MaterialApp(
@@ -39,60 +39,57 @@ class app extends StatelessWidget {
   }
 }
 
-class mainlayout extends StatefulWidget {
+class mainlayout extends StatelessWidget {
   const mainlayout({super.key});
 
-  @override
-  State<mainlayout> createState() => _mainlayoutState();
-}
-
-class _mainlayoutState extends State<mainlayout> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  ElevatedButton(
-                    child: const Text(
-                      "Create an account",
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const signupscreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 233, 30, 182)),
+                      child: const Text(
+                        "Create an account",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const signupscreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 233, 30, 182)
-                    ),
-              ),
-                  ElevatedButton(
-                    child: const Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const loginscreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 233, 30, 182)
-                    ),
-                    
-                    
-                )
-                ],
-              )
-            ),
-            
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const loginscreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 233, 30, 182)),
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ],
+                )),
           ],
         ),
       ),
